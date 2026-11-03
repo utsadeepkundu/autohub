@@ -7,3 +7,4 @@ django-filter
 python-dotenv
 Pillow
 requests
+redis==8.1.0
