@@ -1,10 +1,26 @@
 
+# Core framework
 Django==6.1.2
 djangorestframework==3.18.3
-django-mongodb-backend==6.1.*
-django-cors-headers
-django-filter
-python-dotenv
-Pillow
-requests
+
+# MongoDB
+django-mongodb-backend==6.1.0
+
+# Authentication
+djangorestframework-simplejwt==5.5.1
+
+# CORS and filtering
+django-cors-headers==4.9.0
+django-filter==26.2
+
+# Environment configuration
+python-dotenv==1.2.4
+
+# Image processing
+Pillow==13.0.0
+
+# HTTP requests and external API integration
+requests==2.34.2
+
+# Redis caching and API throttling
 redis==8.1.0
