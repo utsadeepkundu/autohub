@@ -1,0 +1,9 @@
+
+Django==6.1.2
+djangorestframework==3.18.3
+django-mongodb-backend==6.1.*
+django-cors-headers
+django-filter
+python-dotenv
+Pillow
+requests
