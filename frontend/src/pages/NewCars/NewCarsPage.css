@@ -1,0 +1,578 @@
+
+.new-cars-page {
+  min-height: 100vh;
+  background: var(--ah-background);
+}
+
+/* Marketplace hero */
+
+.new-cars-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 35px;
+  min-height: 350px;
+  overflow: hidden;
+  padding: 55px max(32px, calc((100% - var(--ah-container)) / 2));
+  background: var(--ah-dark);
+}
+
+.new-cars-hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.new-cars-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--ah-rind);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.new-cars-hero .new-cars-eyebrow {
+  color: var(--ah-fresh);
+}
+
+.new-cars-hero h1 {
+  margin: 21px 0 15px;
+  color: #FFFFFF;
+  font-size: clamp(42px, 5vw, 65px);
+  font-weight: 850;
+  letter-spacing: -3.5px;
+  line-height: 1.04;
+}
+
+.new-cars-hero h1 span {
+  color: var(--ah-pink);
+}
+
+.new-cars-hero-content > p {
+  max-width: 510px;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.new-cars-hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 38px;
+  margin-top: 28px;
+}
+
+.new-cars-hero-stats div {
+  display: grid;
+  gap: 5px;
+}
+
+.new-cars-hero-stats strong {
+  color: var(--ah-fresh);
+  font-size: 22px;
+  font-weight: 850;
+}
+
+.new-cars-hero-stats span {
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 10px;
+}
+
+.new-cars-hero-decoration {
+  position: relative;
+  display: grid;
+  min-height: 260px;
+  place-items: center;
+  overflow: hidden;
+  color: var(--ah-dark);
+  border-radius: 34px 34px 90px 34px;
+  background: linear-gradient(
+    135deg,
+    var(--ah-fresh),
+    #D8E9B8
+  );
+}
+
+.hero-decoration-circle {
+  position: absolute;
+  top: -100px;
+  right: -65px;
+  width: 260px;
+  height: 260px;
+  border: 2px dashed rgba(24, 45, 39, 0.22);
+  border-radius: 50%;
+}
+
+.hero-decoration-leaf {
+  position: absolute;
+  bottom: -105px;
+  left: -50px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: rgba(35, 122, 80, 0.15);
+}
+
+.new-cars-hero-decoration > svg {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-decoration-caption {
+  position: absolute;
+  right: 20px;
+  bottom: 17px;
+  color: var(--ah-rind);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+/* Main content */
+
+.new-cars-content {
+  width: min(var(--ah-container), calc(100% - 64px));
+  margin: 0 auto;
+  padding: 65px 0 90px;
+}
+
+.marketplace-section-heading h2,
+.model-search-header h2 {
+  margin: 10px 0 7px;
+  color: var(--ah-dark);
+  font-size: 30px;
+  font-weight: 850;
+  letter-spacing: -1.3px;
+}
+
+.marketplace-section-heading p,
+.model-search-header p {
+  margin: 0;
+  color: var(--ah-text-muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* Brand selector */
+
+.brand-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.brand-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 140px;
+  padding: 11px 15px;
+  border: 1px solid var(--ah-border);
+  border-radius: var(--ah-radius-pill);
+  background: var(--ah-surface);
+  color: var(--ah-dark);
+  font-size: 12px;
+  font-weight: 750;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+.brand-option:hover {
+  transform: translateY(-2px);
+  border-color: var(--ah-rind);
+}
+
+.brand-option.selected {
+  border-color: var(--ah-rind);
+  background: rgba(168, 217, 121, 0.23);
+}
+
+.brand-option-initial {
+  display: grid;
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border-radius: 50%;
+  color: white;
+  background: var(--ah-rind);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.brand-option-logo {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+/* Model search */
+
+.model-search-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 65px 0 25px;
+}
+
+.model-search-form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: min(360px, 100%);
+  min-height: 48px;
+  padding: 5px 7px 5px 15px;
+  color: var(--ah-text-muted);
+  border: 1px solid var(--ah-border);
+  border-radius: var(--ah-radius-pill);
+  background: var(--ah-surface);
+}
+
+.model-search-form input {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  padding: 8px 0;
+  color: var(--ah-dark);
+  border: 0;
+  outline: none;
+  background: transparent;
+  font-size: 12px;
+}
+
+.model-search-form input::placeholder {
+  color: #96A199;
+}
+
+.model-search-form > button:last-child {
+  display: grid;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  color: white;
+  border: 0;
+  border-radius: 50%;
+  background: var(--ah-coral);
+}
+
+.clear-search {
+  padding: 6px;
+  color: var(--ah-coral);
+  border: 0;
+  background: transparent;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+/* Model cards */
+
+.car-model-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.car-model-card {
+  overflow: hidden;
+  border: 1px solid var(--ah-border);
+  border-radius: 23px;
+  background: var(--ah-surface);
+  box-shadow: var(--ah-shadow-sm);
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.car-model-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--ah-shadow-md);
+}
+
+.car-model-image {
+  position: relative;
+  height: 205px;
+  overflow: hidden;
+  background: #EAF0E6;
+}
+
+.car-model-image img {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 300ms ease;
+}
+
+.car-model-card:hover .car-model-image img {
+  transform: scale(1.04);
+}
+
+.car-image-fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--ah-rind);
+}
+
+.model-brand-badge {
+  position: absolute;
+  z-index: 2;
+  top: 13px;
+  left: 13px;
+  padding: 7px 12px;
+  color: var(--ah-dark);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: var(--ah-radius-pill);
+  background: rgba(255, 253, 249, 0.91);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.car-model-details {
+  padding: 19px;
+}
+
+.car-model-details h3 {
+  margin: 0 0 9px;
+  color: var(--ah-dark);
+  font-size: 19px;
+  font-weight: 850;
+  letter-spacing: -0.5px;
+}
+
+.car-model-rating {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 19px;
+  color: #C28B28;
+  font-size: 11px;
+}
+
+.car-model-rating span {
+  color: var(--ah-text-muted);
+  font-size: 10px;
+}
+
+.car-model-price {
+  display: grid;
+  gap: 8px;
+  margin-top: 18px;
+  padding: 15px 0;
+  border-top: 1px solid var(--ah-border);
+  border-bottom: 1px solid var(--ah-border);
+}
+
+.car-model-price > span {
+  color: var(--ah-text-muted);
+  font-size: 10px;
+}
+
+.car-model-price strong {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--ah-rind);
+  font-size: 16px;
+}
+
+.model-details-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 17px;
+  color: var(--ah-coral);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.model-details-link svg {
+  transition: transform 180ms ease;
+}
+
+.model-details-link:hover svg {
+  transform: translateX(4px);
+}
+
+/* States */
+
+.marketplace-status,
+.marketplace-empty,
+.marketplace-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 230px;
+  margin-top: 25px;
+  padding: 30px;
+  border: 1px solid var(--ah-border);
+  border-radius: 22px;
+  background: var(--ah-surface);
+  color: var(--ah-text-muted);
+  text-align: center;
+  font-size: 13px;
+}
+
+.marketplace-status svg,
+.marketplace-empty svg {
+  color: var(--ah-rind);
+}
+
+.marketplace-empty h3,
+.marketplace-error strong {
+  margin: 0;
+  color: var(--ah-dark);
+  font-size: 17px;
+}
+
+.marketplace-empty p,
+.marketplace-error p {
+  margin: 0;
+  font-size: 12px;
+}
+
+.marketplace-error button {
+  padding: 10px 18px;
+  color: white;
+  border: 0;
+  border-radius: var(--ah-radius-pill);
+  background: var(--ah-coral);
+  font-size: 11px;
+  font-weight: 750;
+}
+
+.loading-icon {
+  animation: ah-spin 1s linear infinite;
+}
+
+@keyframes ah-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Pagination */
+
+.model-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 38px;
+}
+
+.model-pagination button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 11px 17px;
+  color: var(--ah-dark);
+  border: 1px solid var(--ah-border);
+  border-radius: var(--ah-radius-pill);
+  background: var(--ah-surface);
+  font-size: 11px;
+  font-weight: 750;
+}
+
+.model-pagination button:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.model-pagination span {
+  color: var(--ah-text-muted);
+  font-size: 11px;
+}
+
+/* Responsive layouts */
+
+@media (max-width: 1000px) {
+  .new-cars-hero {
+    grid-template-columns: 1fr 0.8fr;
+    padding-right: 32px;
+    padding-left: 32px;
+  }
+
+  .car-model-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .new-cars-hero {
+    grid-template-columns: 1fr;
+    padding: 40px 22px;
+  }
+
+  .new-cars-hero h1 {
+    font-size: 49px;
+  }
+
+  .new-cars-hero-decoration {
+    min-height: 190px;
+  }
+
+  .new-cars-content {
+    width: calc(100% - 36px);
+    padding: 45px 0 65px;
+  }
+
+  .brand-selector {
+    gap: 9px;
+  }
+
+  .brand-option {
+    min-width: 0;
+    flex: 1 1 calc(50% - 9px);
+    justify-content: flex-start;
+    padding: 9px 12px;
+  }
+
+  .model-search-header {
+    align-items: stretch;
+    flex-direction: column;
+    margin-top: 45px;
+  }
+
+  .model-search-form {
+    width: 100%;
+  }
+
+  .car-model-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .car-model-image {
+    height: 220px;
+  }
+
+  .model-pagination {
+    gap: 10px;
+  }
+
+  .model-pagination button {
+    padding: 10px 12px;
+  }
+}
+
+@media (max-width: 380px) {
+  .new-cars-hero-stats {
+    gap: 21px;
+  }
+
+  .model-pagination span {
+    font-size: 10px;
+  }
+}

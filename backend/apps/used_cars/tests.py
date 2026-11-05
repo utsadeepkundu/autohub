@@ -237,6 +237,18 @@ class UsedCarCatalogueAPITests(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(data["count"], 2)
 
+    def test_city_filter_supports_readable_name(self) -> None:
+        response = self.client.get(
+            self.list_url,
+            {"city": "Howrah"},
+        )
+
+        data = get_response_data(response)
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(data["count"], 1)
+        self.assertEqual(data["results"][0]["city"], "Howrah")
+
     def test_combined_used_car_filters(self) -> None:
         parameters = {
             "make": "Maruti Suzuki",

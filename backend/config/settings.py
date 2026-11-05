@@ -161,6 +161,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 
     # CORS must execute before CommonMiddleware.
     "corsheaders.middleware.CorsMiddleware",
@@ -296,10 +297,24 @@ USE_TZ = True
 # ==========================================================
 # STATIC FILE CONFIGURATION
 # ==========================================================
-
 STATIC_URL = "/static/"
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
+
+# Static and media file storage configuration.
+# Use standard static storage locally and WhiteNoise in production.
+STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    "staticfiles": {
+        "BACKEND": (
+            "django.contrib.staticfiles.storage.StaticFilesStorage"
+            if DEBUG
+            else "whitenoise.storage.CompressedManifestStaticFilesStorage"
+        ),
+    },
+}
 
 
 # ==========================================================

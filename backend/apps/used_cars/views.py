@@ -108,8 +108,8 @@ class UsedCarFilterOptionsView(APIView):
     """
     GET /api/used-cars/filters/
 
-    Returns available filter options
-    from active database records.
+    Returns available filter options.
+    Models can optionally be filtered by manufacturer.
     """
 
     permission_classes = [AllowAny]
@@ -120,8 +120,27 @@ class UsedCarFilterOptionsView(APIView):
             is_active=True
         )
 
-        def get_options(field_name):
-            values = queryset.values_list(
+        # Filter model options by the selected manufacturer.
+        selected_make = request.query_params.get(
+            "make", ""
+        ).strip()
+
+        models_queryset = queryset
+
+        if selected_make:
+            models_queryset = queryset.filter(
+                make__iexact=selected_make
+            )
+
+        def get_options(field_name, source_queryset=None):
+
+            source = (
+                source_queryset
+                if source_queryset is not None
+                else queryset
+            )
+
+            values = source.values_list(
                 field_name,
                 flat=True,
             )
@@ -162,7 +181,10 @@ class UsedCarFilterOptionsView(APIView):
 
             # Manufacturer and model
             "makes": get_options("make"),
-            "models": get_options("model_name"),
+            "models": get_options(
+                "model_name",
+                models_queryset,
+            ),
 
             # Location
             "cities": get_options("city"),

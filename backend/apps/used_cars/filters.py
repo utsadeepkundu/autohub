@@ -22,8 +22,7 @@ class UsedCarFilter(django_filters.FilterSet):
 
     # Location
     city = django_filters.CharFilter(
-        field_name="city_slug",
-        lookup_expr="iexact",
+        method="filter_city",
     )
 
     locality = django_filters.CharFilter(
@@ -90,6 +89,14 @@ class UsedCarFilter(django_filters.FilterSet):
         field_name="owner_count",
         lookup_expr="exact",
     )
+
+    def filter_city(self, queryset, name, value):
+        """Accept either the readable city name or its source slug."""
+        cleaned = str(value or "").strip()
+        return queryset.filter(
+            Q(city__iexact=cleaned)
+            | Q(city_slug__iexact=cleaned)
+        )
 
     def filter_model(self, queryset, name, value):
         """

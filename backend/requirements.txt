@@ -24,3 +24,7 @@ requests==2.34.2
 
 # Redis caching and API throttling
 redis==8.1.0
+
+# Production web server and static file serving
+gunicorn==26.2.0
+whitenoise==6.12.0

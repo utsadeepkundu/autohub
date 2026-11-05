@@ -1,0 +1,41 @@
+
+:root {
+  color-scheme: light;
+
+  /* AutoHub Watermelon palette */
+  --ah-coral: #F04463;
+  --ah-pink: #FC7894;
+  --ah-rind: #237A50;
+  --ah-fresh: #A8D979;
+  --ah-cream: #FFF2E7;
+  --ah-dark: #182D27;
+
+  /* Semantic colours */
+  --ah-background: #F3F7F0;
+  --ah-surface: #FFFDF9;
+  --ah-surface-raised: #FFFFFF;
+  --ah-text: #182D27;
+  --ah-text-muted: #68776F;
+  --ah-border: rgba(24, 45, 39, 0.12);
+  --ah-success: #237A50;
+  --ah-danger: #D93654;
+
+  /* Effects */
+  --ah-shadow-sm: 0 4px 14px rgba(24, 45, 39, 0.06);
+  --ah-shadow-md: 0 12px 32px rgba(24, 45, 39, 0.09);
+  --ah-shadow-lg: 0 20px 48px rgba(24, 45, 39, 0.12);
+
+  /* Rounded corners */
+  --ah-radius-sm: 10px;
+  --ah-radius-md: 18px;
+  --ah-radius-lg: 26px;
+  --ah-radius-pill: 999px;
+
+  /* Layout */
+  --ah-container: 1280px;
+  --ah-header-height: 76px;
+
+  /* Typography */
+  --ah-font-sans:
+    Inter, "Segoe UI", Roboto, Arial, sans-serif;
+}
